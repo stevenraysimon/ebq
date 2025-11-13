@@ -21,7 +21,8 @@
     --max-width: 1200px;
 }
 
-/******* Global Styles *******/
+/******* Body *******/
+
 body {
     font-family: var(--font);
     color: var(--black);
@@ -29,7 +30,6 @@ body {
     line-height: 1.6;
 }
 
-/******* Wrapper *******/
 .wrapper {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -37,6 +37,7 @@ body {
 }
 
 /******* Header *******/
+
 header {
     background-color: var(--lightBlue);
 }
@@ -51,13 +52,14 @@ header .wrapper {
     width: 100%;
 }
 
-header .hero-text {
+header .text {
     max-width: 600px;
     width: 100%;
+    text-align: left;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Open Sans', Arial, sans-serif;
+    font-family: var(--font);
     font-weight: 300;
     margin-bottom: 15px;
 }
@@ -128,17 +130,15 @@ nav {
 section {
     background-color: var(--white);
     padding: 4rem 0;
-    /* top/bottom spacing */
+    text-align: left;
 }
 
 section .row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 2rem;
-    /* space between image and text */
-    margin-bottom: 4rem;
-    /* spacing between rows */
+    gap: 2rem; /* space between image and text */
+    margin-bottom: 4rem; /* spacie between rows */
 }
 
 section .row:nth-child(odd) {
@@ -157,8 +157,9 @@ section img {
 }
 
 .text p {
+    font-size: 1.2rem;
     margin-bottom: 1.5rem;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 /******* Footer *******/
@@ -175,9 +176,9 @@ footer h2 {
 }
 
 /******* Mobile *******/
+
 @media (max-width: 768px) {
 
-    /* Nav adjustments */
     nav {
         gap: 1rem;
         padding: 1rem 2rem;
@@ -203,7 +204,11 @@ footer h2 {
         padding-bottom: 2rem;
     }
 
-    h1 {
+    header .text{
+        text-align: center;
+    }
+
+    /* h1 {
         font-size: 2rem;
         line-height: 2.4rem;
     }
@@ -211,6 +216,10 @@ footer h2 {
     h2 {
         font-size: 1.5rem;
         line-height: 1.8rem;
+    } */
+
+    section{
+        text-align: center;
     }
 
     section .row {
@@ -218,6 +227,10 @@ footer h2 {
         text-align: center;
         gap: 1.5rem;
         margin-bottom: 3rem;
+    }
+
+    section .row:nth-child(even) {
+        flex-direction: column-reverse;
     }
 
     section .row:nth-child(odd) {
@@ -230,12 +243,9 @@ footer h2 {
     }
 
     .text {
+        font-size: 1.1rem;
         max-width: 100%;
         padding: 0 1rem;
-    }
-
-    .text p {
-        font-size: 0.95rem;
     }
 
     /* Footer */
@@ -243,15 +253,14 @@ footer h2 {
         padding: 3rem 1.5rem;
     }
 
-    footer h2 {
+    /* footer h2 {
         font-size: 1.5rem;
         margin-bottom: 2rem;
-    }
+    } */
 }
 
 @media (max-width: 350px) {
 
-    /* Nav adjustments */
     nav {
         flex-direction: column;
     }
