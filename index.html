@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Landing Page</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" href="#">
+
+		<link rel="stylesheet" href="styles.css">
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+	</head>
+
+	<body>
+		<!--Page Content-->
+		<header>
+			<!--head content-->
+			<nav>
+				<a href="#" title="EBQ"><img src="assets/logo-blue-160x160-1.png" title="EBQ" alt="EBQ" id="logo"></a>
+				<a href="#" class="button" title="Contact Us">Contact Us</a>
+			</nav>
+			<div class="wrapper">
+				<div class="text">
+					<h1>Integrated<br><strong>Marketing Services</strong></h1>
+					<p>We turn your marketing plans into action by building on your ideas and executing initiatives alongside you and your team. Get a complete department that can pivot to different areas of marketing based on your needs.</p>
+				</div>
+			</div><!--wrapper-->
+		</header>
+		<section>
+			<div class="wrapper">
+				<div class="row">
+					<img src="assets/Marketing_Tools.svg" title="Marketing Tools" alt="Marketing Tools">
+					<div class="text">
+						<h2>We're experts with <strong>modern marketing tools,</strong> so you don't have to be!</h2>
+						<p>With hands-on experience in B2B's most innovative apps and tools, we take a data-driven approach to continually improve prospect engagement. Whether we work directly out of your platform or provide our insights manually, you always get full visibility into the process.</p>
+					</div>
+				</div>
+				<div class="row">
+					<img src="assets/Complete-Department-Marketing.png" title="Complete Department Marketing" alt="Complete Department Marketing">
+					<div class="text">
+						<h2><strong>The best way</strong> to build a marketing team</h2>
+						<p>With EBQ, you're not just hiring a marketing specialist. You're getting an entire marketing department at a fraction of the cost and effort of hiring internally.</p>
+						<p>For each project, we provide: a Success Manager to drive high-level strategy, a Project Manager to oversee day-to-day operations, and one or more Specialists workign diligently to amplify your brand.</p>
+					</div>
+				</div>
+			</div><!--wrapper-->
+		</section>
+		<footer>
+			<h2>Looking to take your <strong>marketing to the next level?</strong></h2>
+			<a href="#" class="button specialButton" title="Contact Us">Contact Us</a>
+		</footer>
+		<!-- Hidden Form Section -->
+		<section id="contactFormSection" class="hidden-form">
+			<div class="wrapper">
+			  <h2>Get in Touch</h2>
+			  <form id="contactForm">
+				<div class="form-row" id="form-hide">
+				  <div class="form-group">
+					<label for="firstName">First Name</label>
+					<input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+				  </div>
+				  <div class="form-group">
+					<label for="lastName">Last Name</label>
+					<input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+				  </div>
+				  <div class="form-group">
+					<label for="email">Email</label>
+					<input type="email" id="email" name="email" placeholder="Email" required>
+				  </div>
+				  <div class="form-group">
+					<label for="phone">Phone Number</label>
+					<input type="tel" id="phone" name="phone" placeholder="Phone Number">
+				  </div>
+				</div>
+				<button type="submit" class="button specialButton">Go</button>
+			  </form>
+			</div>
+		  </section>		  
+  
+		<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+		<script type="text/javascript">
+
+			// Event listener JS goes here
+			const topButton = document.querySelector('header .button');
+			const bottomButton = document.querySelector('footer .specialButton');
+			const formSection = document.getElementById('contactFormSection');
+			const form = document.getElementById('contactForm');
+			const formHide = document.getElementById('form-hide');
+			const formTitle = formSection.querySelector('h2');
+			const button = form.querySelector('button');
+
+			function revealAndScroll(e) {
+				e.preventDefault();
+				//reveal
+				if (!formSection.classList.contains('active')) {
+					formSection.classList.add('active');
+				}
+
+				//scroll
+				formSection.scrollIntoView({ 
+						behavior: 'smooth' 
+				});
+			}
+
+			//event listeners
+			topButton.addEventListener('click', revealAndScroll);
+			bottomButton.addEventListener('click', revealAndScroll);
+
+			//form submission
+			form.addEventListener('submit', function(e) {
+				e.preventDefault();
+				celebrateFormSubmit();
+			});
+
+			//celebrate function
+			function celebrateFormSubmit() {
+
+				confetti({
+					particleCount: 150,
+					spread: 80,
+					origin: { y: 0.6 },
+					colors: ['#2979EC', '#FFBE3C']
+				});
+
+				//hide the form
+				formHide.classList.add('hidden');
+
+				//change the titles
+				formTitle.textContent = 'Thank You!';
+				button.textContent = 'Submit Another';
+
+				//disable form inputs
+				form.querySelectorAll('input').forEach(function(input){
+					input.disabled = false;
+				});
+
+				//reset the form
+				button.onclick = function(e) {
+					e.preventDefault();
+					form.reset();
+
+					form.querySelectorAll('input').forEach(function(input){
+						input.disabled = false;
+					});
+					
+					formTitle.textContent = 'Get in Touch';
+					button.textContent = 'Go';
+					button.onclick = null;
+					formHide.classList.remove('hidden');
+				};
+			}
+
+		</script>
+	</body>
+</html>

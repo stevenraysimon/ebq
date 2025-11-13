@@ -1,0 +1,329 @@
+/******* LANDING PAGE STYLES *******/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/******* Variables *******/
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --lightBlue: #EBF4FF;
+    --darkBlue: #0A459E;
+    --blue: #2979EC;
+    --gold: #FFBE3C;
+    --goldHover: #be8514;
+    --padding-base: 1.5rem;
+
+    --font: 'Open Sans', Arial, sans-serif;
+    --max-width: 1200px;
+}
+
+/******* Global Styles *******/
+body {
+    font-family: var(--font);
+    color: var(--black);
+    background-color: var(--white);
+    line-height: 1.6;
+}
+
+/******* Wrapper *******/
+.wrapper {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/******* Header *******/
+header {
+    background-color: var(--lightBlue);
+}
+
+header .wrapper {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
+
+#logo {
+    max-width: 120px;
+    width: 100%;
+}
+
+header .hero-text {
+    max-width: 600px;
+    width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong {
+    font-weight: 900;
+}
+
+h1 {
+    font-size: 3rem;
+    line-height: 3.3rem;
+}
+
+h2 {
+    font-size: 2rem;
+    line-height: 2.3rem;
+}
+
+/******* Nav *******/
+
+nav {
+    width: 100%;
+    background-color: var(--lightBlue);
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+}
+
+#logo {
+    max-width: 120px;
+    width: 100%;
+    height: auto;
+}
+
+.button {
+    background-color: var(--blue);
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.75rem 2rem;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    border-radius: 40px;
+    border: none;
+}
+
+.button:hover {
+    background-color: var(--darkBlue);
+    cursor: pointer;
+}
+
+.specialButton {
+    background-color: var(--gold);
+    color: var(--darkBlue);
+}
+
+.specialButton:hover {
+    background-color: var(--goldHover);
+}
+
+/******* Sections *******/
+
+section {
+    background-color: var(--white);
+    padding: 4rem 0;
+    /* top/bottom spacing */
+}
+
+section .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    /* space between image and text */
+    margin-bottom: 4rem;
+    /* spacing between rows */
+}
+
+section .row:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+
+section img {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+}
+
+.text {
+    max-width: 500px;
+    width: 100%;
+}
+
+.text p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/******* Footer *******/
+
+footer {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--white);
+    background-color: var(--darkBlue);
+}
+
+footer h2 {
+    margin-bottom: 4rem;
+}
+
+/******* Mobile *******/
+@media (max-width: 768px) {
+
+    /* Nav adjustments */
+    nav {
+        gap: 1rem;
+        padding: 1rem 2rem;
+    }
+
+    #logo {
+        max-width: 90px;
+        /* smaller logo */
+    }
+
+    .button {
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .specialButton {
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    header .wrapper {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+        line-height: 2.4rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        line-height: 1.8rem;
+    }
+
+    section .row {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+    }
+
+    section .row:nth-child(odd) {
+        flex-direction: column;
+    }
+
+    section img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .text {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+
+    .text p {
+        font-size: 0.95rem;
+    }
+
+    /* Footer */
+    footer {
+        padding: 3rem 1.5rem;
+    }
+
+    footer h2 {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 350px) {
+
+    /* Nav adjustments */
+    nav {
+        flex-direction: column;
+    }
+}
+
+/******* Hidden Form *******/
+
+.hidden-form {
+    display: none;
+    background-color: var(--lightBlue);
+    padding: 4rem 0;
+    transition: all 0.5s ease;
+}
+
+.hidden-form.active {
+    display: block;
+}
+
+.hidden-form h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+.hidden-form form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;
+}
+
+.hidden-form .form-row {
+    display: block;
+}
+
+.form-group label {
+    font-size: 0.8rem;
+    color: var(--black);
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+    font-family: var(--font);
+}
+
+.hidden-form input {
+    padding: 0.75rem 1rem;
+    border: none;
+    font-family: var(--font);
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.hidden-form input::placeholder {
+    color: #AAA;
+    font-family: var(--font);
+}
+
+.hidden-form button.specialButton {
+    margin: auto;
+    display: block;
+}
+
+#contactForm {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+  
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease, height 0.4s ease;
+  }
+  
